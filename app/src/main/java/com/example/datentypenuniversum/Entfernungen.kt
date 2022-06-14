@@ -10,18 +10,18 @@ class Entfernungen {
         // todo Schreibe hier deinen Code
         val merkurDTE: Int = 77300000
         val venusDTE: Int = 38200000
-        val mondDTE: Int = 3600000
-        val erdeDTE: Int = 0
-        val issDTE: Int = 408
+        val mondDTE: Int = 360000
+        val erdeDTE: Byte = 0
+        val issDTE: Short = 408
         val marsDTE: Int = 55700000
         val jupiterDTE: Int = 588500000
         val saturnDTE: Int = 1195500000
-        val uranusDTE: Long = 2518900000
-        val neptunDTE: Long = 4305900000
+        val uranusDTE: Float = 2518900000f
+        val neptunDTE: Float = 4305900000f
 
         // Erstelle eine veränderbare Liste
         // todo Schreibe hier deinen Code
-        val listDTE: MutableList<Number> = mutableListOf()
+        val listDTE = mutableListOf<Number>()
 
         // Füge die Entfernungen hinzu
         // todo Schreibe hier deinen Code
@@ -45,75 +45,56 @@ class Entfernungen {
      */
     fun distanceToSunAE(distances: MutableList<Number>): MutableList<Float> {
 
-        val merkurDTE: Double = distances[0].toDouble()
-        val venusDTE: Double = distances[1].toDouble()
-        val mondDTE: Double = distances[2].toDouble()
-        val erdeDTE: Double = distances[3].toDouble()
-        val issDTE: Double = distances[4].toDouble()
-        val marsDTE: Double = distances[5].toDouble()
-        val jupiterDTE: Double = distances[6].toDouble()
-        val saturnDTE: Double = distances[7].toDouble()
-        val uranusDTE: Double = distances[8].toDouble()
-        val neptunDTE: Double = distances[9].toDouble()
-
-
         // 1 Astronomische Einheit [AE], entspricht der Entfernung von Erde zu Sonne
         val ae = 149597870.7
 
         // Erstelle eine veränderbare Liste
         // todo Schreibe hier deinen Code
-        val listAE: MutableList<Float> = mutableListOf()
+        val listAE = mutableListOf<Float>()
 
-        val merkur: Double = ae - merkurDTE
-        val venus: Double = ae - venusDTE
-        val mond: Double = ae - mondDTE
-        val erde: Double = ae - erdeDTE
-        val iss: Double = ae - issDTE
-        val jupiter: Double = ae - jupiterDTE
-        val saturn: Double = ae - saturnDTE
-        val uranus: Double = ae - uranusDTE
-        val neptun: Double = ae - neptunDTE
+
 
         // Berechne die Entfernungen in AE
         // todo Schreibe hier deinen Code
+        val aeMerkur = distances[0].toDouble() / ae
+        val aeVenus = distances[1].toDouble() / ae
+        val aeMond = distances[2].toDouble() / ae
+        val aeErde = distances[3].toDouble() / ae
+        val aeIss = distances[4].toDouble() / ae
+        val aeMars = distances[5].toDouble() / ae
+        val aeJupiter = distances[6].toDouble() / ae
+        val aeSaturn = distances[7].toDouble() / ae
+        val aeUranus = distances[8].toDouble() / ae
+        val aeNeptun = distances[9].toDouble() / ae
 
-        var merkurAE = (merkurDTE / ae).toFloat()
-        var venusAE = (merkurDTE / ae).toFloat()
-        var mondAE = (merkurDTE / ae).toFloat()
-        var erdeAE = (merkurDTE / ae).toFloat()
-        var issAE = (merkurDTE / ae).toFloat()
-        var marsAE = (merkurDTE / ae).toFloat()
-        var jupiterAE = (merkurDTE / ae).toFloat()
-        var saturnAE = (merkurDTE / ae).toFloat()
-        var uranusAE = (merkurDTE / ae).toFloat()
-        var neptunAE = (merkurDTE / ae).toFloat()
 
         // Runde die Entfernungen auf 2 Nachkommastellen
         // todo Schreibe hier deinen Code
-
+        val aeRoundedMerkur = (aeMerkur * 100).toInt().toFloat()/100
+        val aeRoundedVenus = (aeVenus * 100).toInt().toFloat()/100
+        val aeRoundedMond = (aeMond * 100).toInt().toFloat()/100
+        val aeRoundedErde = (aeErde * 100).toInt().toFloat()/100
+        val aeRoundedIss = (aeIss * 100).toInt().toFloat()/100
+        val aeRoundedMars = (aeMars * 100).toInt().toFloat()/100
+        val aeRoundedJupiter = (aeJupiter * 100).toInt().toFloat()/100
+        val aeRoundedSaturn = (aeSaturn * 100).toInt().toFloat()/100
+        val aeRoundedUranus = (aeUranus * 100).toInt().toFloat()/100
+        val aeRoundedNeptun = (aeNeptun * 100).toInt().toFloat()/100
 
         // Füge die Entfernungen in die Liste ein
         // todo Schreibe hier deinen Code
-        listAE.add(merkurAE)
-        listAE.add(venusAE)
-        listAE.add(mondAE)
-        listAE.add(erdeAE)
-        listAE.add(issAE)
-        listAE.add(marsAE)
-        listAE.add(jupiterAE)
-        listAE.add(saturnAE)
-        listAE.add(uranusAE)
-        listAE.add(neptunAE)
+        listAE.add(aeRoundedMerkur)
+        listAE.add(aeRoundedVenus)
+        listAE.add(aeRoundedMond)
+        listAE.add(aeRoundedErde)
+        listAE.add(aeRoundedIss)
+        listAE.add(aeRoundedMars)
+        listAE.add(aeRoundedJupiter)
+        listAE.add(aeRoundedSaturn)
+        listAE.add(aeRoundedUranus)
+        listAE.add(aeRoundedNeptun)
 
         // Liefere die Liste zurück
         return listAE
-    }
-
-    private fun roundToTwo(toRound: Float): Float {
-        var result: Float = toRound * 100f
-        val resultInt: Int = result.toInt()
-        result = resultInt.toFloat()
-        result /= 100f
-        return result
     }
 }
